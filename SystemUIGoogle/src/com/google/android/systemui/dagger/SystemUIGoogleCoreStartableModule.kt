@@ -77,7 +77,7 @@ import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 
-//import com.android.systemui.smartpixels.SmartPixelsReceiver;
+import com.android.systemui.smartpixels.SmartPixelsReceiver;
 
 /**
  * Collection of {@link CoreStartable}s that should be run on AOSP.
@@ -344,10 +344,9 @@ abstract class SystemUIGoogleCoreStartableModule {
     @ClassKey(KeyguardSmartspaceStartable::class)
     abstract fun bindKeyguardSmartspaceStartable(sysui: KeyguardSmartspaceStartable): CoreStartable
 
-    /** Inject into SmartPixelsReceiver.
-     * @Binds
-     * @IntoMap
-     * @ClassKey(SmartPixelsReceiver::class)
-     * abstract fun bindSmartPixelsReceiver(sysui: SmartPixelsReceiver): CoreStartable
-     */
+    /** Inject into SmartPixelsReceiver.  */
+    @Binds
+    @IntoMap
+    @ClassKey(SmartPixelsReceiver::class)
+    abstract fun bindSmartPixelsReceiver(sysui: SmartPixelsReceiver): CoreStartable
 }
